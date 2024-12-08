@@ -348,7 +348,7 @@ nav a:hover {
 }
 
 .qr-generator h2 {
-  color: var(--primary-green);
+  color: #ffd700; /* Change from var(--primary-green) to yellow */
   margin-bottom: 1rem;
 }
 
@@ -370,6 +370,17 @@ nav a:hover {
 #downloadBtn {
   margin: 1rem auto;
   display: block;
+}
+
+.qr-generator .btn {
+  background: #ffd700; /* Change from var(--primary-green) to yellow */
+  color: #000000; /* Change text color to black for better contrast on yellow */
+}
+
+.qr-generator .btn:hover {
+  background: #e6c200; /* Slightly darker yellow on hover */
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
 }
 
 .contact-form {
@@ -578,6 +589,64 @@ nav a:hover {
   }
 }
 
+button.btn[onclick="openProductsModal()"] {
+  display: block;
+  margin: 4rem auto 2rem auto; /* Increased top margin from 2rem to 4rem */
+  background: var(--primary-green);
+}
+
+/* Update the product card button styles */
+.product-card .btn {
+  background: transparent;
+  color: white;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.product-card .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid var(--primary-green);
+  border-radius: 5px;
+  animation: borderAnimation 4s linear infinite;
+  z-index: -1;
+}
+
+/* Add hover effect for the button */
+.product-card .btn:hover {
+  background: transparent;
+  transform: scale(1.05);
+  box-shadow: none;
+}
+
+/* Add this style for the AliExpress banner wrapper */
+.aliexpress-banner {
+  max-width: 800px; /* Match product card width */
+  margin: 0 auto 2rem auto;
+  width: 100%;
+}
+
+.aliexpress-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Update price and discount styles for products */
+.product-card span[style*="font-size: 1.5rem"] {
+  color: #ffd700 !important; /* Yellow color for prices */
+}
+
+.product-card span[style*="background: var(--primary-green)"] {
+  background: #ffd700 !important; /* Yellow color for discount badges */
+  color: #000000 !important; /* Black text for better contrast on yellow */
+}
 </style>
 </head>
 <body>
@@ -720,6 +789,244 @@ nav a:hover {
   </div>
 </section>
 
+<section class="recommended-products" style="padding: 6rem 2rem; background: var(--dark-bg);">
+  <div class="aliexpress-banner">
+    <a href='https://s.click.aliexpress.com/e/_De66I7f?bz=725*90' target='_parent'>
+      <img src='https://ae01.alicdn.com/kf/S7f82d3dde546424f82977bd0a134afffc.jpg' alt="AliExpress Banner">
+    </a>
+  </div>
+
+  <!-- First product card -->
+  <div class="product-card" style="
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--primary-green);
+  ">
+    <h3 style="
+      font-size: 1.5rem;
+      color: var(--primary-green);
+      margin-bottom: 1rem;
+      position: relative;
+    ">LILYGO® TTGO Meshtastic T-Echo</h3>
+    
+    <p style="margin-bottom: 1rem; position: relative;">
+      Module sans fil meshtastique t-echo LoRa SX1262, 433/868/915MHz, NRF52840 1.54 e-papier GPS RTC NFC BME280 pour Arduino
+    </p>
+    
+    <div style="
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    ">
+      <span style="font-size: 1.5rem; color: #ffd700;">CHF 51.19</span>
+      <span style="text-decoration: line-through; color: #666;">CHF 56.88</span>
+      <span style="background: #ffd700; color: #000000; padding: 0.2rem 0.5rem; border-radius: 5px; font-size: 0.9rem;">10% off</span>
+    </div>
+    
+    <a href="https://s.click.aliexpress.com/e/_EH8NzIk" 
+       target="_blank"
+       class="btn"
+       style="display: inline-block; text-decoration: none; position: relative;">
+      🛒 Acheter Maintenant
+    </a>
+  </div>
+
+  <!-- Second product card (new) -->
+  <div class="product-card" style="
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--primary-green);
+  ">
+    <h3 style="
+      font-size: 1.5rem;
+      color: var(--primary-green);
+      margin-bottom: 1rem;
+      position: relative;
+    ">GMKtec-Mini PC M6</h3>
+    
+    <p style="margin-bottom: 1rem; position: relative;">
+      Ordinateur de Bureau AMD R5 6600H, 6 Cœurs, 12 Fils, 16 Go DDR5, 512 Go PCIe, 3.0 SSD, WiFi, 6 BT Stimule
+    </p>
+    
+    <div style="
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    ">
+      <span style="font-size: 1.5rem; color: #ffd700;">CHF 240.19</span>
+      <span style="text-decoration: line-through; color: #666;">CHF 686.26</span>
+      <span style="background: #ffd700; color: #000000; padding: 0.2rem 0.5rem; border-radius: 5px; font-size: 0.9rem;">65% off</span>
+    </div>
+    
+    <a href="https://s.click.aliexpress.com/e/_mrIWgwj" 
+       target="_blank"
+       class="btn"
+       style="display: inline-block; text-decoration: none; position: relative;">
+      🛒 Acheter Maintenant
+    </a>
+  </div>
+</section>
+
+<button class="btn" onclick="openProductsModal()" style="
+  display: block;
+  margin: 4rem auto 2rem auto; /* Increased top margin from 2rem to 4rem */
+  background: var(--primary-green);
+">
+  Voir Plus de Produits
+</button>
+
+<!-- Add this new modal for products -->
+<div id="productsModal" class="modal">
+  <div class="modal-content" style="background: var(--dark-bg);">
+    <span class="close" onclick="closeProductsModal()">&times;</span>
+    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; color: var(--primary-green);">
+      Produits Recommandés
+    </h2>
+    
+    <div style="display: grid; gap: 2rem;">
+      <!-- Product 1 -->
+      <div class="product-card" style="
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid var(--primary-green);
+      ">
+        <h3 style="font-size: 1.5rem; color: var(--primary-green); margin-bottom: 1rem;">
+          OPTFOCUS-Mini Routeur Wifi de Poche
+        </h3>
+        <p style="margin-bottom: 1rem;">
+          Routeur Wifi avec Carte Sim, Modem, 5G, NR, NSA, 5000mAh, MIFI 6, 4G, 5G, Dispositif de Permanence
+        </p>
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <span style="font-size: 1.5rem; color: #ffd700;">CHF 83.69</span>
+        </div>
+        <a href="https://s.click.aliexpress.com/e/_EvfTmyc" target="_blank" class="btn">
+          🛒 Acheter Maintenant
+        </a>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card" style="
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid var(--primary-green);
+      ">
+        <h3 style="font-size: 1.5rem; color: var(--primary-green); margin-bottom: 1rem;">
+          GL.iNet GL-MT3000 (Beryl Humanity)
+        </h3>
+        <p style="margin-bottom: 1rem;">
+          Wi-Fi 6 Routeur Gigabit de voyage sans fil, Wi-Fi allergique public et hôtelier, Portail captif, Cybersécurité
+        </p>
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <span style="font-size: 1.5rem; color: #ffd700;">CHF 71.99</span>
+          <span style="text-decoration: line-through; color: #666;">CHF 109.08</span>
+          <span style="background: #ffd700; color: #000000; padding: 0.2rem 0.5rem; border-radius: 5px; font-size: 0.9rem;">34% off</span>
+        </div>
+        <a href="https://s.click.aliexpress.com/e/_EI3HKvQ" target="_blank" class="btn">
+          🛒 Acheter Maintenant
+        </a>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card" style="
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid var(--primary-green);
+      ">
+        <h3 style="font-size: 1.5rem; color: var(--primary-green); margin-bottom: 1rem;">
+          Lerdge-Kit d'imprimante 3D GE iX
+        </h3>
+        <p style="margin-bottom: 1rem;">
+          Creality K1, FDM, Mise à niveau, Extrudeuse, Équipement Touriste, Imprimante DIY, Feuille Pei
+        </p>
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <span style="font-size: 1.5rem; color: #ffd700;">CHF 116.69</span>
+          <span style="text-decoration: line-through; color: #666;">CHF 166.70</span>
+          <span style="background: #ffd700; color: #000000; padding: 0.2rem 0.5rem; border-radius: 5px; font-size: 0.9rem;">30% off</span>
+        </div>
+        <a href="https://s.click.aliexpress.com/e/_okh0d53" target="_blank" class="btn">
+          🛒 Acheter Maintenant
+        </a>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card" style="
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid var(--primary-green);
+      ">
+        <h3 style="font-size: 1.5rem; color: var(--primary-green); margin-bottom: 1rem;">
+          EGCHALANCEMENT-Support externe Thunderbolt
+        </h3>
+        <p style="margin-bottom: 1rem;">
+          Support externe Thunderbolt 3/4 à carte pcie, peut être installé, alimentation ATX 7900XT/rtx4090
+        </p>
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <span style="font-size: 1.5rem; color: #ffd700;">CHF 111.69</span>
+        </div>
+        <a href="https://s.click.aliexpress.com/e/_ooScLwH" target="_blank" class="btn">
+          🛒 Acheter Maintenant
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add these JavaScript functions -->
+<script>
+function openProductsModal() {
+  const modal = document.getElementById('productsModal');
+  modal.style.display = "block";
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProductsModal() {
+  const modal = document.getElementById('productsModal');
+  modal.style.display = "none";
+  document.body.style.overflow = '';
+}
+
+// Close products modal when clicking outside
+window.onclick = function(event) {
+  const modal = document.getElementById('productsModal');
+  if (event.target == modal) {
+    closeProductsModal();
+  }
+}
+
+// Add escape key support for products modal
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeProductsModal();
+  }
+});
+</script>
+
 <div class="qr-generator">
   <h2>Générateur de QR Code</h2>
   <input type="text" id="qrText" placeholder="Entrez le texte ou l'URL">
@@ -787,6 +1094,17 @@ nav a:hover {
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
       </svg>
     </a>
+    <svg width="24" height="24" viewBox="0 0 32 32" style="margin: 0 0.5rem; vertical-align: middle;">
+      <rect width="32" height="32" fill="#FF0000"/>
+      <rect x="13" y="6" width="6" height="20" fill="#FFFFFF"/>
+      <rect x="6" y="13" width="20" height="6" fill="#FFFFFF"/>
+    </svg>
+    <svg width="24" height="24" viewBox="0 0 32 32" style="margin: 0 0.5rem; vertical-align: middle;">
+      <rect width="32" height="32" fill="#009c3b"/>
+      <path d="M16,3 L28,16 L16,29 L4,16 L16,3Z" fill="#ffdf00"/>
+      <circle cx="16" cy="16" r="6" fill="#002776"/>
+      <path d="M16,12 A4,4 0 0,1 20,16" stroke="#fff" fill="none"/>
+    </svg>
     <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
       <svg width="20" height="20" viewBox="0 0 24 24" style="animation: rotate 3s linear infinite;">
         <path fill="var(--primary-green)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
@@ -915,7 +1233,7 @@ function openModal(service) {
             <li>Générer des QR Codes personnalisés
               <p>Transformez facilement des liens ou des informations en QR Codes prêts à être partagés. Un outil parfait pour promouvoir des événements, des produits ou partager des données utiles.</p>
             </li>
-            <li>Découvrir votre IP publique
+            <li>Distinguer votre IP publique
               <p>Identifiez votre adresse IP publique en un clic et recevez un lien pour explorer plus d'informations sur votre connexion réseau.</p>
             </li>
             <li>Créer des mots de passe ultra-sécurisés
