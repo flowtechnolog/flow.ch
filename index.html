@@ -443,6 +443,10 @@ nav a:hover {
   box-shadow: 0 0 20px rgba(14, 173, 105, 0.2);
 }
 
+.modal-content .btn {
+  pointer-events: none; /* This will disable click events */
+}
+
 @keyframes modalSlideIn {
   from {
     opacity: 0;
@@ -1284,6 +1288,20 @@ function openModal(service) {
         </div>`;
       break;
   }
+
+  // Update all modal button href attributes to use the contact section ID
+  setTimeout(() => {
+    const modalButtons = document.querySelectorAll('.modal-content a[href="#contact"]');
+    modalButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
+        document.querySelector('#contact').scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  }, 100);
 }
 
 function closeModal() {
@@ -1804,6 +1822,20 @@ function openModal(service) {
         </div>`;
       break;
   }
+
+  // Update all modal button href attributes to use the contact section ID
+  setTimeout(() => {
+    const modalButtons = document.querySelectorAll('.modal-content a[href="#contact"]');
+    modalButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
+        document.querySelector('#contact').scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  }, 100);
 }
 </script>
 
